@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лабораторна робота</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e1a1a;
+            color: #f0e6e6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #d4a1a1;
+            border-bottom: 2px solid #d4a1a1;
+            padding-bottom: 5px;
+        }
+        .task {
+            background-color: #3f2828;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .task p {
+            line-height: 1.6;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="task">
+            <h2>Завдання 1</h2>
+            <script>
+                let Treag = [];
+                for(let n = 1; n <= 10; n++) {
+                    Treag.push(n * (n + 1) / 2);
+                }
+                document.write("<p>Трикутні числа: " + Treag.join("  ") + "</p>");
+
+                let kvd = [];
+                for(let n = 1; n <= 10; n++) {
+                    kvd.push(n * n);
+                }
+                document.write("<p>Квадрати чисел: " + kvd.join("  ") + "</p>");
+
+                let rez = Treag.concat(kvd);
+                document.write("<p>Об'єднаний масив: " + rez.join("  ") + "</p>");
+
+                rez.sort((a, b) => b - a);
+                document.write("<p>Відсортований масив: " + rez.join("  ") + "</p>");
+            </script>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 2</h2>
+            <script>
+                let arr2 = [];
+                for(let i = 0; i < 15; i++) {
+                    arr2.push(Math.floor(Math.random() * 100));
+                }
+                document.write("<p>Початковий масив: " + arr2.join("  ") + "</p>");
+
+                let maxIndex = 0;
+                for(let i = 1; i < arr2.length; i++) {
+                    if(arr2[i] > arr2[maxIndex]) {
+                        maxIndex = i;
+                    }
+                }
+
+                let temp = arr2[arr2.length - 1];
+                arr2[arr2.length - 1] = arr2[maxIndex];
+                arr2[maxIndex] = temp;
+
+                document.write("<p>Результат: " + arr2.join("  ") + "</p>");
+            </script>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 3</h2>
+            <script>
+        let arr3 = Array.from({length: 15}, () => Math.floor(Math.random() * 200 - 100));
+document.write("<p>Початковий масив: " + arr3.join("  ") + "</p>");
+
+const a = -50, b = 50;
+
+const countInRange = arr3.filter(num => num >= a && num <= b).length;
+
+const sumMultiplesOf3 = arr3.reduce((sum, num, index) => {
+    return ((index + 1) % 3 === 0) ? sum + num : sum;
+}, 0);
+
+document.write(`<p>Кількість чисел в проміжку [${a},${b}]: ${countInRange}</p>`);
+document.write(`<p>Сума чисел на місцях, кратних 3: ${sumMultiplesOf3}</p>`);
+            </script>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 4</h2>
+            <script>
+                let fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];
+                let citrus = ['orange', 'lemon', 'lime'];
+
+                document.write("<p>1. Масив fruits: " + fruits.join(", ") + "</p>");
+                document.write("<p>2. Масив citrus: " + citrus.join(", ") + "</p>");
+
+                fruits = fruits.concat(citrus);
+                document.write("<p>3. Об'єднаний масив: " + fruits.join(", ") + "</p>");
+
+                let mangoIndex = fruits.indexOf('mango');
+                fruits.splice(mangoIndex + 1, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');
+                document.write("<p>4. Масив після вставки: " + fruits.join(", ") + "</p>");
+
+                fruits.splice(-3);
+                document.write("<p>5. Масив після видалення: " + fruits.join(", ") + "</p>");
+
+                let sortedFruits = [...fruits].sort();
+                document.write("<p>6. Відсортований масив: " + sortedFruits.join(", ") + "</p>");
+
+                let reverseSortedFruits = [...fruits].sort((a, b) => b.localeCompare(a));
+                document.write("<p>7. Зворотньо відсортований масив: " + reverseSortedFruits.join(", ") + "</p>");
+
+                let lengthSortedFruits = [...fruits].sort((a, b) => a.length - b.length);
+                document.write("<p>8. Відсортований за довжиною масив: " + lengthSortedFruits.join(", ") + "</p>");
+            </script>
+        </div>
+    </div>
+</body>
+</html>
